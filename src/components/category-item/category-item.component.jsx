@@ -1,5 +1,5 @@
 import "./category.styles.scss";
-export default function CategoryItem({ category: { imageUrl, title } }) {
+export default function CategoryItem({ category: {imageUrl, title } }) {
   return (
     <div className="category-container">
       <div
