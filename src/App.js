@@ -2,6 +2,7 @@ import Navigation from "./components/navigation/navigation.component";
 import Authentication from "./routes/Authentication/Authenticaton.component";
 import Home from "./routes/Home_Page/Home.component";
 import Shop from "./routes/Shop Page/shop.component";
+import CheckOut from "./routes/Check-Out Page/CheckOut.component";
 import "./index.scss";
 import { Routes, Route } from "react-router-dom";
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />} />
         <Route path="auth" element={<Authentication />} />
+        <Route path="checkout" element={<CheckOut />} />
       </Route>
     </Routes>
   );
