@@ -29,19 +29,19 @@ export function signInWithGooglePopup() {
   return signInWithPopup(auth, googleProvider);
 }
 
-export async function createUserDocumentFromAuth(user,additionalInfo={}) {
+export async function createUserDocumentFromAuth(user, additionalInfo = {}) {
   if (!user) return;
   const userDocRef = doc(db, "users", user.uid);
   const userSnapshot = await getDoc(userDocRef);
   if (!userSnapshot.exists()) {
-    const { displayName, email} = user;
+    const { displayName, email } = user;
     const createdAt = new Date();
     try {
       await setDoc(userDocRef, {
         displayName,
         email,
         createdAt,
-        ...additionalInfo
+        ...additionalInfo,
       });
     } catch (e) {
       console.error("Error while creating the users--> ", e.message);
@@ -52,4 +52,8 @@ export async function createUserDocumentFromAuth(user,additionalInfo={}) {
 export async function createUserSignInWithEmailNPassword(email, password) {
   if (!email || !password) return;
   return await createUserWithEmailAndPassword(auth, email, password);
+}
+export async function signInUserWithEmailAndPassword(email, password) {
+  if (!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password);
 }
