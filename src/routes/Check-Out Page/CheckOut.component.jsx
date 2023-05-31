@@ -1,16 +1,13 @@
 import CartContext from "../../context/cart-item-context";
 import "./CheckOut.style.scss";
 import { useContext } from "react";
+import CheckOutItem from "../../components/Checkout-component/Checkout-component";
 export default function CheckOut() {
-  const { Collection, setCollection, addItemToCart, removeItemFromCart } =
-    useContext(CartContext);
-  function handleClick(product) {
-    setCollection(Collection.filter((item) => item.id !== product.id));
-  }
+  const { Collection, Cost } = useContext(CartContext);
   const tableHeaders = [
     { name: "Product" },
     { name: "Description" },
-    { name: "Quality" },
+    { name: "Quantity" },
     { name: "Price" },
     { name: "Remove" },
   ];
@@ -18,57 +15,23 @@ export default function CheckOut() {
     return <th key={name}>{name}</th>;
   });
   const bodyList = Collection.map((product) => {
-    const { id, imageUrl, name, quantity, price } = product;
-    return (
-      <tr key={id}>
-        <td>
-          <img src={imageUrl} alt={`${name}`} />
-        </td>
-        <td>{name}</td>
-        <td>
-          <span
-            onClick={() => {
-              addItemToCart(product);
-            }}
-          >
-            UP{" "}
-          </span>
-          {quantity}
-          <span
-            onClick={() => {
-              removeItemFromCart(product);
-            }}
-          >
-            {" "}
-            Down
-          </span>
-        </td>
-        <td>{price}</td>
-        <td>
-          <span
-            onClick={() => {
-              handleClick(product);
-            }}
-          >
-            X
-          </span>
-        </td>
-      </tr>
-    );
+    return <CheckOutItem key={product.id} product={product} />;
   });
   return (
     <div className="table-container">
-    <table>
-      <thead>
-        <tr>{headerList}</tr>
-      </thead>
-      <tbody>{bodyList}</tbody>
-      <tfoot>
-        <tr>
-          <td>Total cost</td>
-        </tr>
-      </tfoot>
-    </table>
+      <table>
+        <thead>
+          <tr>{headerList}</tr>
+        </thead>
+        <tbody>{bodyList}</tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={5}>
+              Total cost: {Cost}
+            </td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
   );
 }

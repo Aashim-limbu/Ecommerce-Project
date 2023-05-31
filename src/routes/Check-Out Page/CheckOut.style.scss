@@ -1,6 +1,9 @@
-table {
+.table-container{
+    display: flex;
+    justify-content: center;
+    table {
         border-collapse: collapse;
-        width: 100%;
+        width: 80%;
         
         th {
             background-color: #f2f2f2;
@@ -21,6 +24,11 @@ table {
                 height: 60px;
           width: 60px;
         }
+        .icon{
+            margin: 0 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
         
         @media only screen and (max-width: 768px) {
             display: block;
@@ -36,12 +44,21 @@ table {
     }
     
     tfoot {
-        font-weight: bold;
+
         td {
-            border-bottom: none;
-            text-align: right;
+          background-color: #f2f2f2;
+          font-weight: bold;
+          text-align: center;
+          padding: 1rem;
+          border-top: 1px solid black;
+          
+          &:first-child {
+            text-align: left;
+          }
         }
-    }
+        
+              }
+                  
     
     tbody {
         tr {
@@ -52,3 +69,4 @@ table {
         }
     }
 } 
+}

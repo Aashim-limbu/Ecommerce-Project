@@ -26,12 +26,19 @@ export function CartProvider({ children }) {
   const [IsExpanded, setIsExpanded] = useState(false);
   const [Collection, setCollection] = useState([]);
   const [CartCount, setCartCount] = useState(0);
-
+  const [Cost, setCost] = useState(0);
+  
   useEffect(() => {
     const newCartCount = Collection.reduce((acc, currentValue) => {
       return acc + currentValue.quantity;
     }, 0);
     setCartCount(newCartCount);
+  }, [Collection]);
+  useEffect(() => {
+    const newCartTotal = Collection.reduce((acc, currentValue) => {
+      return acc + (currentValue.quantity * currentValue.price);
+    }, 0);
+    setCost(newCartTotal);
   }, [Collection]);
   function addItemToCart(productToAdd) {
     setCollection(addItem(Collection, productToAdd));
@@ -52,6 +59,7 @@ export function CartProvider({ children }) {
     setCartCount,
     CartCount,
     removeItemFromCart,
+    Cost
   };
   return (
     <CartContext.Provider value={valueToShare}>{children}</CartContext.Provider>
