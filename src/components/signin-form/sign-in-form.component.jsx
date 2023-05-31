@@ -24,13 +24,19 @@ export default function SignInForm() {
     e.preventDefault();
     try {
       await signInUserWithEmailAndPassword(email, password);
+      setValue({
+        email: "",
+        password: "",
+      });
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
           alert("incorrect password");
+          setValue({ ...Value, password: "" });
           break;
         case "auth/user-not-found":
           alert("User not found");
+          setValue({ ...Value, email: "", password: "" });
           break;
         default:
           console.error("Error While Signing In", e);
@@ -65,7 +71,11 @@ export default function SignInForm() {
         />
         <div className="buttons-container">
           <Button type="submit">SIGN IN</Button>
-          <Button type='button' buttonType="secondary" onClick={signInWithGoogle}>
+          <Button
+            type="button"
+            buttonType="secondary"
+            onClick={signInWithGoogle}
+          >
             GOOGLE SIGNIN
           </Button>
         </div>

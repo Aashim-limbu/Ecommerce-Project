@@ -1,8 +1,10 @@
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
+  signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
@@ -56,4 +58,10 @@ export async function createUserSignInWithEmailNPassword(email, password) {
 export async function signInUserWithEmailAndPassword(email, password) {
   if (!email || !password) return;
   return await signInWithEmailAndPassword(auth, email, password);
+}
+export async function signUserOut() {
+  return await signOut(auth);
+}
+export async function onAuthUserStateChangedListener(callback) {
+  return await onAuthStateChanged(auth, callback);
 }
