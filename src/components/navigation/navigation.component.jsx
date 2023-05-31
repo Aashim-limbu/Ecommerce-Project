@@ -4,11 +4,14 @@ import UserContext from "../../context/user-context";
 import { ReactComponent as Logo } from "../../assets/hwsymleo.svg";
 import "./navigation.style.scss";
 import { signUserOut } from "../../utils/firebase/firebase.utils";
+import CartIcon from "../Cart-Icon/cart-icon.component";
+import DropDown from "../Dropdown/DropDown.component";
+import CartContext from "../../context/cart-item-context";
 export default function Navigation() {
-  const { User, setUser } = useContext(UserContext);
-  async function signOutHandler() {
-    await signUserOut();
-    setUser(null);
+  const { User } = useContext(UserContext);
+  const {IsExpanded , setIsExpanded} = useContext(CartContext)
+  function handleClick(e){
+    setIsExpanded(!IsExpanded)
   }
   return (
     <Fragment>
@@ -19,11 +22,11 @@ export default function Navigation() {
           </Link>
         </div>
         <div className="nav-links-container">
-          <Link className="nav-link" to="/store">
-            STORE
+          <Link className="nav-link" to="/shop">
+            SHOP
           </Link>
           {User ? (
-            <span onClick={signOutHandler} className="nav-link">
+            <span onClick={signUserOut} className="nav-link">
               SIGN OUT
             </span>
           ) : (
@@ -31,7 +34,9 @@ export default function Navigation() {
               SIGN IN
             </Link>
           )}
+          <CartIcon onClick={handleClick}/>
         </div>
+        {IsExpanded && <DropDown/>}
       </div>
       <Outlet />
     </Fragment>

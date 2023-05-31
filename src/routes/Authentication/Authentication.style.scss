@@ -1,8 +1,9 @@
 .authentication-container{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     background-color: #f2f2f2;
     padding: 15px 15px;
-    width: 70rem;
+    width: 70vw;
     margin: 30px auto;
 }

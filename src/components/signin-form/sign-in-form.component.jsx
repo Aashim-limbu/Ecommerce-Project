@@ -3,7 +3,6 @@ import Button from "../Buttons/button.component";
 import "./sign-in-form.style.scss";
 import { useState } from "react";
 import {
-  createUserDocumentFromAuth,
   signInUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
@@ -17,8 +16,7 @@ export default function SignInForm() {
     setValue({ ...Value, [name]: value });
   }
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
   async function handleSubmit(e) {
     e.preventDefault();
