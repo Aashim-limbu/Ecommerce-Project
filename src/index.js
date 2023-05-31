@@ -4,16 +4,16 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ShopProvider } from "./context/shop-item-context";
-import {CartProvider} from "./context/cart-item-context";
+import { CartProvider } from "./context/cart-item-context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <CartProvider>
-      <ShopProvider>
-        <UserProvider>
+    <ShopProvider>
+      <UserProvider>
+        <CartProvider>
           <App />
-        </UserProvider>
-      </ShopProvider>
-    </CartProvider>
+        </CartProvider>
+      </UserProvider>
+    </ShopProvider>
   </BrowserRouter>
 );

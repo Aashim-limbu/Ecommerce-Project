@@ -9,10 +9,7 @@ import DropDown from "../Dropdown/DropDown.component";
 import CartContext from "../../context/cart-item-context";
 export default function Navigation() {
   const { User } = useContext(UserContext);
-  const {IsExpanded , setIsExpanded} = useContext(CartContext)
-  function handleClick(e){
-    setIsExpanded(!IsExpanded)
-  }
+  const {IsExpanded } = useContext(CartContext)
   return (
     <Fragment>
       <div className="navigation ">
@@ -34,7 +31,7 @@ export default function Navigation() {
               SIGN IN
             </Link>
           )}
-          <CartIcon onClick={handleClick}/>
+          <CartIcon/>
         </div>
         {IsExpanded && <DropDown/>}
       </div>
