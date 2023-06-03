@@ -3,17 +3,17 @@ import { UserProvider } from "./context/user-context";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { ShopProvider } from "./context/shop-item-context";
+import { CategoriesProvider } from "./context/Categories-context";
 import { CartProvider } from "./context/cart-item-context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <ShopProvider>
+    <CategoriesProvider>
       <UserProvider>
         <CartProvider>
           <App />
         </CartProvider>
       </UserProvider>
-    </ShopProvider>
+    </CategoriesProvider>
   </BrowserRouter>
 );

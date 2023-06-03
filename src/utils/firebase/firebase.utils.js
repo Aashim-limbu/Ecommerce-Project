@@ -8,17 +8,26 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { doc, setDoc, getDoc, getFirestore } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  getDoc,
+  getFirestore,
+  collection,
+  writeBatch,
+  query,
+  getDocs,
+} from "firebase/firestore";
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA0cmWYmyiPEDX8RVUkIanz6p47p5BGgns",
-  authDomain: "e-commerce1-db.firebaseapp.com",
-  projectId: "e-commerce1-db",
-  storageBucket: "e-commerce1-db.appspot.com",
-  messagingSenderId: "331797079583",
-  appId: "1:331797079583:web:6fe4460d58f871c81e172a",
+  apiKey: "AIzaSyCGEKVVDmhvhUhUjBiJBc4RZe-rFjbrfRk",
+  authDomain: "ecommerce-1-1acc6.firebaseapp.com",
+  projectId: "ecommerce-1-1acc6",
+  storageBucket: "ecommerce-1-1acc6.appspot.com",
+  messagingSenderId: "63305936837",
+  appId: "1:63305936837:web:ed2da1862dd8b197b325ac",
 };
-
 const app = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 export const auth = getAuth();
@@ -64,4 +73,27 @@ export async function signUserOut() {
 }
 export async function onAuthUserStateChangedListener(callback) {
   return await onAuthStateChanged(auth, callback);
+}
+//adding the collection to the database 
+export async function addCollectionAndDocuments(collectionKey, objectToAdd) {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+  objectToAdd.forEach((obj) => {
+    const docRef = doc(collectionRef, obj.title.toLowerCase());
+    batch.set(docRef, obj);
+  });
+  await batch.commit();
+  console.log("done");
+}
+//this is for getting the document items from database
+export async function getCategoriesAndDocuments() {
+  const collectionRef = collection(db, "categories");
+  const q = query(collectionRef);
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+  return categoryMap;
 }
