@@ -2,7 +2,7 @@ import { useState, createContext, useEffect } from "react";
 const CartContext = createContext();
 
 function addItem(Collection, productToAdd) {
-  const existingItem = Collection.find((i) => i.id === productToAdd.id);
+    const existingItem = Collection.find((i) => i.id === productToAdd.id);
   if (existingItem) {
     return Collection.map((item) =>
     item.id === productToAdd.id
@@ -27,7 +27,7 @@ export function CartProvider({ children }) {
   const [Collection, setCollection] = useState([]);
   const [CartCount, setCartCount] = useState(0);
   const [Cost, setCost] = useState(0);
-  
+
   useEffect(() => {
     const newCartCount = Collection.reduce((acc, currentValue) => {
       return acc + currentValue.quantity;
