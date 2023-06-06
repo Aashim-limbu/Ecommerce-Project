@@ -1,4 +1,4 @@
-#Clothing Ecommerce Site
+<h1>Clothing Ecommerce Site</h1>
 
 This project is an ecommerce website that allows users to browse and purchase clothing items. The main goal of this project was to learn how to use routing and Firebase.
 #Features
