@@ -32,7 +32,7 @@ export default function CheckOutItem({ product }) {
           <TfiPlus />
         </span>
       </td>
-      <td>{price}</td>
+      <td>Rs.{price}</td>
       <td>
         <span className="icon"
           onClick={() => {

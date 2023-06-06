@@ -11,7 +11,7 @@ export default function CategoryPage() {
 		setProducts(categoriesMap[category]);
 	}, [categoriesMap, category]);
 	return (
-		<>
+		<div className="category-component-container">
 			<h2 className="category-title">{category}</h2>
 			<div className="category-container">
 				{Products &&
@@ -19,6 +19,6 @@ export default function CategoryPage() {
 						return <ProductCard key={product.id} product={product} />;
 					})}
 			</div>
-		</>
+		</div>
 	);
 }

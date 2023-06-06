@@ -1,5 +1,5 @@
 import FormInput from "../form-input/form-input.component";
-import Button from "../Buttons/button.component";
+import Button , {BUTTON_TYPE} from "../Buttons/button.component";
 import "./sign-in-form.style.scss";
 import { useState } from "react";
 import {
@@ -71,7 +71,7 @@ export default function SignInForm() {
           <Button type="submit">SIGN IN</Button>
           <Button
             type="button"
-            buttonType="secondary"
+            buttonType={BUTTON_TYPE.secondary}
             onClick={signInWithGoogle}
           >
             GOOGLE SIGNIN

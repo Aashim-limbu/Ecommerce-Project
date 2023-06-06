@@ -1,6 +1,6 @@
-import "./cart-icon.style.scss";
-import { ReactComponent as ShoppingIcon } from "../../assets/shopping-cart-svgrepo-com.svg";
+import "./cart-icon.style.jsx";
 import CartContext from "../../context/cart-item-context";
+import { CartIconContainer,ShoppingIconSvg,ItemCount } from "./cart-icon.style.jsx";
 import { useContext } from "react";
 export default function CartIcon() {
   const { IsExpanded, setIsExpanded,CartCount} = useContext(CartContext);
@@ -8,9 +8,9 @@ export default function CartIcon() {
     setIsExpanded(!IsExpanded);
   }
   return (
-    <div className="cart-icon-container" onClick={handleClick}>
-      <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">{CartCount}</span>
-    </div>
-  );
+		<CartIconContainer onClick={handleClick}>
+			<ShoppingIconSvg />
+			<ItemCount>{CartCount}</ItemCount>
+		</CartIconContainer>
+	);
 }

@@ -1,27 +1,27 @@
 .table-container{
     display: flex;
     justify-content: center;
+    padding: 1rem;
     table {
         border-collapse: collapse;
         width: 80%;
-        
         th {
             background-color: #f2f2f2;
             font-weight: bold;
             padding: 0.8rem;
             text-align: left;
-            
+
             @media only screen and (max-width: 768px) {
                 display: none;
             }
         }
-        
+
         td {
             border-bottom: 1px solid #ddd;
             padding: 10px;
-            
+
             img {
-                height: 60px;
+        height: 60px;
           width: 60px;
         }
         .icon{
@@ -29,11 +29,11 @@
             cursor: pointer;
             font-weight: bold;
         }
-        
+
         @media only screen and (max-width: 768px) {
             display: block;
             text-align: center;
-            
+
             &:before {
                 content: attr(data-label);
                 float: left;
@@ -42,7 +42,7 @@
             }
         }
     }
-    
+
     tfoot {
 
         td {
@@ -51,15 +51,15 @@
           text-align: center;
           padding: 1rem;
           border-top: 1px solid black;
-          
+
           &:first-child {
             text-align: left;
           }
         }
-        
+
               }
-                  
-    
+
+
     tbody {
         tr {
             @media only screen and (max-width: 768px) {
@@ -68,5 +68,5 @@
             }
         }
     }
-} 
+}
 }

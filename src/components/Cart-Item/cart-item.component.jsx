@@ -1,5 +1,5 @@
 import './cart-item.style.scss'
-export default function CartItem({cartItem:{name,quantity,imageUrl,id,price}}){
+export default function CartItem({cartItem:{name,quantity,imageUrl,price}}){
     return (
         <div className='cart-item-container'>
             <img src={imageUrl} alt={`${name}`} />
