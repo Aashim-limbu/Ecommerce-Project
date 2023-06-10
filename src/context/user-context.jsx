@@ -10,7 +10,6 @@ const USER_ACTION_TYPE = {
 function userReducer(state, action) {
 	const { type, payload } = action;
 	console.log("Dispatched");
-	console.log(action);
 	switch (type) {
 		case USER_ACTION_TYPE.SET_CURRENT_USER:
 			return {
@@ -26,7 +25,6 @@ export function UserProvider({ children }) {
 	const [{ User }, dispatch] = useReducer(userReducer, {
 		User: null,
 	});
-	console.log(User);
 	function setUser(user) {
 		dispatch({ type: USER_ACTION_TYPE.SET_CURRENT_USER, payload: user });
 	}

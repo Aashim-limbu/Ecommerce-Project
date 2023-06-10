@@ -27,7 +27,6 @@ export function CartProvider({ children }) {
   const [Collection, setCollection] = useState([]);
   const [CartCount, setCartCount] = useState(0);
   const [Cost, setCost] = useState(0);
-
   useEffect(() => {
     const newCartCount = Collection.reduce((acc, currentValue) => {
       return acc + currentValue.quantity;
