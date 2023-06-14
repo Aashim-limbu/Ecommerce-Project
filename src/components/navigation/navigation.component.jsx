@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
 import { Fragment, useContext } from "react";
-import UserContext from "../../context/user-context";
+import { useSelector } from "react-redux";
 import { ReactComponent as Logo } from "../../assets/hwsymleo.svg";
 import { signUserOut } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../Cart-Icon/cart-icon.component";
 import DropDown from "../Dropdown/DropDown.component";
 import CartContext from "../../context/cart-item-context";
+import { selectUser } from "../../store/user/user.selector";
 import {
 	NavigationContainer,
 	LogoContainer,
@@ -13,7 +14,7 @@ import {
 	NavLink,
 } from "./navigation.style.jsx";
 export default function Navigation() {
-	const { User } = useContext(UserContext);
+	const User = useSelector(selectUser);
 	const { IsExpanded } = useContext(CartContext);
 	return (
 		<Fragment>
