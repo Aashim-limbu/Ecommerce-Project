@@ -3,10 +3,8 @@ const CART_INITIAL_STATE = {
 	Collection: [],
 	IsExpanded: false,
 };
-export default function cartReducer(
-	state = CART_INITIAL_STATE,
-	{ type, payload }
-) {
+export default function cartReducer(state = CART_INITIAL_STATE, actions = {}) {
+	const { type, payload } = actions;
 	switch (type) {
 		case CART_ACTIONS.TOGGLEEXPANDED:
 			return {
@@ -16,7 +14,7 @@ export default function cartReducer(
 		case CART_ACTIONS.SETCARTITEMS:
 			return {
 				...state,
-				Collection:payload,
+				Collection: payload,
 			};
 		default:
 			return state;

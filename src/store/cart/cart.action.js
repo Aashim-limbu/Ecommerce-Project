@@ -1,8 +1,8 @@
 import CART_ACTIONS from "./cart.types";
 import createAction from "../../utils/reducer/reducer.utils";
 
-export function setIsExpandable(bool) {
-	createAction(CART_ACTIONS.TOGGLEEXPANDED, bool);
+export function setIsExpanded(bool) {
+	return createAction(CART_ACTIONS.TOGGLEEXPANDED, bool);
 }
 function addItem(Collection, productToAdd) {
 	const existingItem = Collection.find((i) => i.id === productToAdd.id);
@@ -33,15 +33,15 @@ function removeProduct(Collection, productToRemove) {
 function clearProduct(Collection, productToClear) {
 	return Collection.filter((item) => item.id !== productToClear.id);
 }
-export function addItemToCart(Collection , productToAdd) {
+export function addItemToCart(Collection, productToAdd) {
 	const newCartItems = addItem(Collection, productToAdd);
-	createAction(CART_ACTIONS.SETCARTITEMS,newCartItems);
+	return createAction(CART_ACTIONS.SETCARTITEMS, newCartItems);
 }
-export function removeItemFromCart(Collection , productToRemove) {
+export function removeItemFromCart(Collection, productToRemove) {
 	const newCartItems = removeProduct(Collection, productToRemove);
-	createAction(CART_ACTIONS.SETCARTITEMS,newCartItems);
+	return createAction(CART_ACTIONS.SETCARTITEMS, newCartItems);
 }
-export function clearOutItem(Collection,product) {
+export function clearOutItem(Collection, product) {
 	const newCartItems = clearProduct(Collection, product);
-	createAction(CART_ACTIONS.SETCARTITEMS,newCartItems);
+	return createAction(CART_ACTIONS.SETCARTITEMS, newCartItems);
 }

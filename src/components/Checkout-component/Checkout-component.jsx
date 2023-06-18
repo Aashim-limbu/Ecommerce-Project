@@ -1,12 +1,17 @@
-import { useContext } from "react";
 import { TfiPlus, TfiMinus, TfiClose } from "react-icons/tfi";
-import CartContext from "../../context/cart-item-context";
+import {
+	addItemToCart,
+	clearOutItem,
+	removeItemFromCart,
+} from "../../store/cart/cart.action";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCollection } from "../../store/cart/cart.selector";
 export default function CheckOutItem({ product }) {
-	const { addItemToCart, removeItemFromCart, clearOutItem } =
-		useContext(CartContext);
+	const Collection = useSelector(selectCollection);
+	const dispatch = useDispatch();
 	const { id, imageUrl, name, quantity, price } = product;
 	function handleClick(product) {
-		clearOutItem(product);
+		dispatch(clearOutItem(Collection, product));
 	}
 
 	return (
@@ -19,7 +24,7 @@ export default function CheckOutItem({ product }) {
 				<span
 					className="icon"
 					onClick={() => {
-						removeItemFromCart(product);
+						dispatch(removeItemFromCart(Collection,product));
 					}}
 				>
 					<TfiMinus />
@@ -28,7 +33,7 @@ export default function CheckOutItem({ product }) {
 				<span
 					className="icon"
 					onClick={() => {
-						addItemToCart(product);
+						dispatch(addItemToCart(Collection,product));
 					}}
 				>
 					<TfiPlus />

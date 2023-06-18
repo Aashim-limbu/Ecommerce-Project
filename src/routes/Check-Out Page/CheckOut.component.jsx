@@ -1,9 +1,13 @@
-import CartContext from "../../context/cart-item-context";
 import "./CheckOut.style.scss";
-import { useContext } from "react";
+import { useSelector } from "react-redux";
+import {
+	selectCollection,
+	selectCartTotal,
+} from "../../store/cart/cart.selector";
 import CheckOutItem from "../../components/Checkout-component/Checkout-component";
 export default function CheckOut() {
-	const { Collection, Cost } = useContext(CartContext);
+	const Collection = useSelector(selectCollection);
+	const Cost = useSelector(selectCartTotal);
 	const tableHeaders = [
 		{ name: "Product" },
 		{ name: "Description" },
