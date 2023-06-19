@@ -1,4 +1,5 @@
 <h1>Clothing Ecommerce Site</h1>
+<a href="https://reduxversion-ecommerce.netlify.app/">Visit the site with the redux version [Better]</a>
 <a href="https://aashimecommerce-app.netlify.app/">Visit the site</a></br>
 This project is an ecommerce website that allows users to browse and purchase clothing items. The main goal of this project was to learn how to use routing and Firebase.
 #Features
