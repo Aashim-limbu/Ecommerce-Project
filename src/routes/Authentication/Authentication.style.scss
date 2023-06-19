@@ -1,9 +1,26 @@
-.authentication-container{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background-color: #f2f2f2;
-    padding: 15px 15px;
-    width: 70vw;
-    margin: 30px auto;
+.authentication-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #f2f2f2;
+  padding: 15px 15px;
+  width: 70vw;
+  margin: 30px auto;
+}
+
+@media (max-width: 768px) {
+  .authentication-container {
+    width: 90vw;
+    padding: 10px 10px;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .authentication-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 5px;
+    margin: 10px auto;
+  }
 }

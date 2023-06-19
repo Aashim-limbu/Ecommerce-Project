@@ -1,16 +1,15 @@
 import styled from "styled-components";
+
 export const BackgroundImage = styled.div`
 	width: 100%;
 	height: 100%;
-	background-size: cover;
+	background-size: cover; /* set background size */
 	background-position: center;
-	background-image: ${({imageurl}) => `url(${imageurl})`};
+	background-image: ${({ imageurl }) => `url(${imageurl})`};
 `;
+
 export const Body = styled.div`
-	height: 90px;
-	padding: 0 25px;
-	display: flex;
-	flex-direction: column;
+	padding: 1rem;
 	text-transform: capitalize;
 	align-items: center;
 	justify-content: center;
@@ -19,6 +18,9 @@ export const Body = styled.div`
 	opacity: 0.7;
 	position: absolute;
 	border-radius: 0.4rem;
+	cursor: pointer; /* Add cursor property */
+	user-select: none; /* Add user-select property */
+
 	h2 {
 		font-weight: bold;
 		margin: 0 6px 0;
@@ -30,7 +32,19 @@ export const Body = styled.div`
 		font-weight: lighter;
 		font-size: 16px;
 	}
+
+	/* Responsive styling */
+	@media screen and (max-width: 768px) {
+		padding: 0.8rem;
+		h2 {
+			font-size: 20px;
+		}
+		p {
+			font-size: 14px;
+		}
+	}
 `;
+
 export const DirectoryContainer = styled.div`
 	min-width: 29%;
 	max-height: 30rem;
@@ -44,6 +58,7 @@ export const DirectoryContainer = styled.div`
 
 	&:hover {
 		cursor: pointer;
+
 		& ${BackgroundImage} {
 			filter: blur(3px);
 			transform: scale(1.1);
@@ -56,11 +71,47 @@ export const DirectoryContainer = styled.div`
 			transition: transform 2s ease-out;
 		}
 	}
+
 	&:first-child {
 		margin-right: 7.5px;
 	}
 
 	&:last-child {
 		margin-left: 7.5px;
+	}
+
+	/* Responsive styling */
+	@media screen and (max-width: 768px) {
+		min-width: 80%;
+		margin: 0 auto;
+		margin-bottom: 20px;
+
+		${BackgroundImage} {
+			filter: none;
+			transform: none;
+		}
+
+		${Body} {
+			opacity: 0.9;
+			transform: none;
+		}
+	}
+
+	@media screen and (min-width: 769px) and (max-width: 1024px) {
+		min-width: 45%;
+		margin: 0 10px;
+	}
+
+	@media screen and (min-width: 1025px) {
+		min-width: 29%;
+		margin: 0 7.5px;
+
+		&:first-child {
+			margin-right: 0;
+		}
+
+		&:last-child {
+			margin-left: 0;
+		}
 	}
 `;
