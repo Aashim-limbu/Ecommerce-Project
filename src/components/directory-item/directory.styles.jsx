@@ -13,6 +13,7 @@ export const Body = styled.div`
 	text-transform: capitalize;
     display:flex;
 	align-items: center;
+    flex-direction:column;
 	justify-content: center;
 	border: 1px solid black;
 	background-color: white;
