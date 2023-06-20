@@ -1,8 +1,14 @@
 .directories-container {
-    height:91vh;
-    padding:  2rem 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-between;
+  height: 88vh ;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+  .directories-container {
+    flex-direction: column;
+    height: auto;
   }
+}
+}

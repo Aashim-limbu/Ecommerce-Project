@@ -9,6 +9,7 @@ import {
 	CartDropDownContainer,
 	EmptyMessage,
 	CartItems,
+    CloseBtn
 } from "./DropDown.style.jsx";
 export default function DropDown() {
 	const Collection = useSelector(selectCollection);
@@ -23,6 +24,7 @@ export default function DropDown() {
 	));
 	return (
 		<CartDropDownContainer>
+                <CloseBtn onClick={()=>{dispatch(setIsExpanded(false))}}>X</CloseBtn>
 			<CartItems>
 				{Collection.length ? (
 					listItem

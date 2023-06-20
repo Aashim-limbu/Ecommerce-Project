@@ -16,6 +16,9 @@ const buttonStyles = css`
 	justify-content: center;
 	font-family: "Open Sans Condensed";
 	text-transform: uppercase;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	margin-top: 0.5rem;
 
 	&:focus {
 		outline: none;
@@ -23,6 +26,11 @@ const buttonStyles = css`
 
 	&:hover {
 		transition: background-color 0.2s ease;
+	}
+	@media screen and (max-width: 768px) {
+		width: 100%;
+		margin-top: 0.5rem;
+		font-size: 0.5rem;
 	}
 `;
 
@@ -36,11 +44,6 @@ export const BaseButton = styled.button`
 		color: #0d161b;
 		border: 1px solid #0d161b;
 	}
-
-	@media screen and (max-width: 768px) {
-		width: 100%;
-		margin-top: 0.5rem;
-	}
 `;
 
 export const SecondaryButton = styled(BaseButton)`
@@ -51,11 +54,6 @@ export const SecondaryButton = styled(BaseButton)`
 		background-color: #0096ff;
 		color: #003366;
 		border: none;
-	}
-
-	@media screen and (max-width: 768px) {
-		width: 100%;
-		margin-top: 0.5rem;
 	}
 `;
 
@@ -70,10 +68,5 @@ export const InvertedButton = styled(BaseButton)`
 			color: white;
 			border: none;
 		}
-	}
-
-	@media screen and (max-width: 768px) {
-		width: 100%;
-		margin-top: 0.5rem;
 	}
 `;

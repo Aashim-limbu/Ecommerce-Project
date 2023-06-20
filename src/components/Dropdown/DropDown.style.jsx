@@ -8,14 +8,16 @@ import {
 export const CartDropDownContainer = styled.div`
 	position: absolute;
 	width: 18rem;
-	height: 23rem;
+	max-height: 30rem;
 	display: flex;
 	flex-direction: column;
 	padding: 1rem;
-	border: 1px solid black;
+	box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+		rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+		rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 	background-color: white;
 	top: 4rem;
-	right: 0.2rem;
+	right: 0.4rem;
 	z-index: 5;
 
 	${BaseButton},
@@ -60,12 +62,32 @@ export const CartItems = styled.div`
 	display: flex;
 	flex-direction: column;
 	overflow: scroll;
-
+    margin-bottom:1rem;
 	@media (max-width: 768px) {
 		height: 90%;
 	}
 
 	@media (max-width: 480px) {
 		height: 80%;
+	}
+`;
+export const CloseBtn = styled.span`
+	background-color: transparent;
+	border: none;
+	color: #000;
+	cursor: pointer;
+	font-size: 14px;
+	position: absolute;
+	top: 0.1rem;
+	right: 0rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2rem;
+	box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+		rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+	width: 1rem;
+	&:hover {
+		font-weight: bold;
 	}
 `;
