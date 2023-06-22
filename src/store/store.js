@@ -8,7 +8,7 @@ const middleWares = [thunk, logger];
 const persistConfig = {
 	key: "root",
 	storage,
-	blacklist: ["user"],
+	whitelist: ["cart"],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const composedEnhancers = compose(applyMiddleware(...middleWares));
