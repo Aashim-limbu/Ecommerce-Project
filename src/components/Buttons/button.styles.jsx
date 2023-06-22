@@ -10,16 +10,15 @@ const buttonStyles = css`
 	font-size: 15px;
 	font-weight: bolder;
 	border: none;
-	border-radius: 0.2rem;
+	border-radius: 0.5rem;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
-	font-family: "Open Sans Condensed";
 	text-transform: uppercase;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	margin-top: 0.5rem;
-
+	transition: color, background-color, box-shadow 0.2s ease;
 	&:focus {
 		outline: none;
 	}
@@ -36,37 +35,40 @@ const buttonStyles = css`
 
 export const BaseButton = styled.button`
 	${buttonStyles}
-	background-color: #0d161b;
-	color: white;
-
+	background-color: white;
+	color: #0d161b;
+	box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+		rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+		rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 	&:hover {
 		background-color: white;
-		color: #0d161b;
-		border: 1px solid #0d161b;
+		color: #034c67;
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+			rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 	}
 `;
 
 export const SecondaryButton = styled(BaseButton)`
-	background-color: #00aaff;
-	color: white;
+	background-color: white;
+	color: #00aaff;
+	box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 
 	&:hover {
-		background-color: #0096ff;
-		color: #003366;
+		background-color: #1e90ff;
+		box-shadow: none;
+		color: white;
 		border: none;
 	}
 `;
 
 export const InvertedButton = styled(BaseButton)`
-	&.inverted {
-		background-color: white;
-		color: black;
-		border: 1px solid black;
+	background-color: #f5fffa;
+	color: #778899;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 
-		&:hover {
-			background-color: #0d161b;
-			color: white;
-			border: none;
-		}
+	&:hover {
+		background-color: #0d161b;
+		color: white;
+		border: none;
 	}
 `;

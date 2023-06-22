@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BackgroundImage = styled.div`
 	width: 100%;
 	height: 100%;
-	background-size: cover; /* set background size */
+	background-size: cover;
 	background-position: center;
 	background-image: ${({ imageurl }) => `url(${imageurl})`};
 `;
@@ -11,38 +11,37 @@ export const BackgroundImage = styled.div`
 export const Body = styled.div`
 	padding: 1rem;
 	text-transform: capitalize;
-    display:flex;
+	display: flex;
 	align-items: center;
-    flex-direction:column;
+	flex-direction: column;
 	justify-content: center;
-	border: 1px solid black;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 	background-color: white;
 	opacity: 0.7;
 	position: absolute;
 	border-radius: 0.4rem;
-	cursor: pointer; /* Add cursor property */
-	user-select: none; /* Add user-select property */
+	cursor: pointer;
+	user-select: none;
 
 	h2 {
 		font-weight: bold;
 		margin: 0 6px 0;
-		font-size: 22px;
+		font-size: 2rem;
 		color: #4a4a4a;
 	}
 
 	p {
 		font-weight: lighter;
-		font-size: 16px;
+		font-size: 1.5rem;
 	}
 
-	/* Responsive styling */
 	@media screen and (max-width: 768px) {
 		padding: 0.8rem;
 		h2 {
-			font-size: 20px;
+			font-size: 1.5rem;
 		}
 		p {
-			font-size: 14px;
+			font-size: 1.2rem;
 		}
 	}
 `;
@@ -56,7 +55,7 @@ export const DirectoryContainer = styled.div`
 	justify-content: center;
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
-	border-radius: 0.4rem;
+	border-radius: 1rem;
 
 	&:hover {
 		cursor: pointer;
@@ -82,10 +81,10 @@ export const DirectoryContainer = styled.div`
 		margin-left: 7.5px;
 	}
 
-	/* Responsive styling */
 	@media screen and (max-width: 768px) {
 		min-width: 80%;
 		margin: 0 auto;
+        height:49%;
 		margin-bottom: 20px;
 
 		${BackgroundImage} {

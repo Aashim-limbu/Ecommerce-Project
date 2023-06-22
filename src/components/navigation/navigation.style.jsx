@@ -8,7 +8,8 @@ export const NavigationContainer = styled.div`
 	padding: 1rem;
 	justify-content: space-between;
 	align-items: center;
-	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+		rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
 	@media (max-width: 768px) {
 		flex-direction: column;
@@ -35,7 +36,7 @@ export const NavLinkContainer = styled.div`
 
 	@media (max-width: 768px) {
 		width: 100%;
-		justify-content:space-between;
+		justify-content: space-between;
 	}
 `;
 
@@ -45,8 +46,7 @@ export const NavLink = styled(Link)`
 
 	&:hover {
 		transform: scale(1.01);
-		color: #54626f;
-		transition: transform 0.1s ease;
+		color: #0047ab;
 	}
 
 	@media (max-width: 768px) {

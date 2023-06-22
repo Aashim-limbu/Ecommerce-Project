@@ -1,9 +1,10 @@
 .directories-container {
-  height: 88vh ;
+  height: 88dvh;
   padding: 2rem 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+//   border: 2px solid black;
   justify-content: space-between;
   @media (max-width: 768px) {
   .directories-container {

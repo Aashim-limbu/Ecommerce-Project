@@ -1,51 +1,51 @@
-.table-container {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
+  .table-container {
+    margin: 1rem auto;
+        width: 90vw;
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+                padding: 0.8rem;
+                text-align: left;
+                box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+                @media only screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
 
-    th {
-      background-color: #f2f2f2;
-      font-weight: bold;
-      padding: 0.8rem;
-      text-align: left;
+            td {
+                border-bottom: 1px solid #ddd;
+                padding: 10px;
 
-      @media only screen and (max-width: 768px) {
-        display: none;
-      }
-    }
+                img {
+                    height: 60px;
+                    width: 60px;
+                }
 
-    td {
-      border-bottom: 1px solid #ddd;
-      padding: 10px;
-
-      img {
-        height: 60px;
-        width: 60px;
-      }
-
-      .icon {
+                .icon {
         margin: 0 1rem;
         cursor: pointer;
         font-weight: bold;
-      }
+    }
 
-      @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 768px) {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px;
 
         img {
-          margin-right: 1rem;
+            margin-right: 1rem;
         }
 
         .icon {
-          margin: 0;
-          font-size: 1.2rem;
+            margin: 0;
+            font-size: 1.2rem;
         }
 
         &:before {
@@ -53,11 +53,11 @@
           font-weight: bold;
           text-transform: uppercase;
         }
-      }
     }
+}
 
-    tfoot {
-      td {
+tfoot {
+    td {
         background-color: #f2f2f2;
         font-weight: bold;
         text-align: center;
@@ -65,29 +65,29 @@
         border-top: 1px solid black;
 
         &:first-child {
-          text-align: left;
+            text-align: left;
         }
-      }
     }
+}
 
-    tbody {
-      tr {
+tbody {
+    tr {
         &:last-child td:first-child {
-          border-bottom-left-radius: 10px;
+            border-bottom-left-radius: 10px;
         }
 
         &:last-child td:last-child {
-          border-bottom-right-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
 
         @media only screen and (max-width: 768px) {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
 
-          td {
-            width: 100%;
-            text-align: center;
+            td {
+                width: 100%;
+                text-align: center;
 
             img {
               margin-bottom: 1rem;
@@ -95,10 +95,10 @@
           }
 
           td:not(:last-of-type) {
-            border-bottom: none;
-          }
+              border-bottom: none;
+            }
         }
-      }
     }
-  }
+}
+}
 }

@@ -7,9 +7,10 @@ import {
 
 export const CartDropDownContainer = styled.div`
 	position: absolute;
-	width: 18rem;
+	width: 20rem;
 	max-height: 30rem;
 	display: flex;
+    border-radius:0.7rem;
 	flex-direction: column;
 	padding: 1rem;
 	box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
@@ -27,16 +28,16 @@ export const CartDropDownContainer = styled.div`
 	}
 
 	@media (max-width: 768px) {
-		width: 14rem;
+		width: 15rem;
 		height: 20rem;
-		top: 3.5rem;
-		right: 0.1rem;
+		top: 9rem;
+		right: 0.5rem;
 	}
 
 	@media (max-width: 480px) {
 		width: 12rem;
 		height: 18rem;
-		top: 3rem;
+		top: 9rem;
 		right: 0rem;
 		padding: 0.8rem;
 	}
@@ -72,21 +73,19 @@ export const CartItems = styled.div`
 	}
 `;
 export const CloseBtn = styled.span`
-	background-color: transparent;
-	border: none;
-	color: #000;
+	background-color: #0070bb;
+	color: white;
+	border-radius: 50%;
 	cursor: pointer;
-	font-size: 14px;
+	font-size: 1rem;
 	position: absolute;
 	top: 0.1rem;
-	right: 0rem;
+	right: 0.2rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 1.2rem;
-	box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
-		rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
-	width: 1rem;
+	width: 1.5rem;
 	&:hover {
 		font-weight: bold;
 	}
