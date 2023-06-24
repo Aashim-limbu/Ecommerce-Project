@@ -4,11 +4,11 @@ import "./shop.style.scss";
 import { useDispatch } from "react-redux";
 import CategoryPage from "../category/category.component";
 import CategoriesPreview from "../categories-preview/categories-preview.component";
-import { fetchCategoryAsync } from "../../store/categories/category.action";
+import { fetchCategoryStart } from "../../store/categories/category.action";
 export default function Shop() {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(fetchCategoryAsync());
+		dispatch(fetchCategoryStart());
 	}, [dispatch]);
 	return (
 		<Routes>
