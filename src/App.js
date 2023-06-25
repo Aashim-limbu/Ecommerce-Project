@@ -10,7 +10,7 @@ import {
 	onAuthUserStateChangedListener,
 	createUserDocumentFromAuth,
 } from "./utils/firebase/firebase.utils";
-import setUser from "./store/user/user.action";
+import { setUser } from "./store/user/user.reducer";
 import { Routes, Route } from "react-router-dom";
 export default function App() {
 	const dispatch = useDispatch();

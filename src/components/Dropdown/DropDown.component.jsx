@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectCollection } from "../../store/cart/cart.selector.js";
 import Button from "../Buttons/button.component";
-import { setIsExpanded } from "../../store/cart/cart.action.js";
 import { useDispatch } from "react-redux";
+import { setIsExpanded } from "../../store/cart/cart.reducer.js";
 import CartItem from "../Cart-Item/cart-item.component";
 import {
 	CartDropDownContainer,

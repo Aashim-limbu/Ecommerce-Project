@@ -3,15 +3,13 @@ import {
 	addItemToCart,
 	clearOutItem,
 	removeItemFromCart,
-} from "../../store/cart/cart.action";
-import { useDispatch, useSelector } from "react-redux";
-import { selectCollection } from "../../store/cart/cart.selector";
+} from "../../store/cart/cart.reducer";
+import { useDispatch } from "react-redux";
 export default function CheckOutItem({ product }) {
-	const Collection = useSelector(selectCollection);
 	const dispatch = useDispatch();
 	const { id, imageUrl, name, quantity, price } = product;
 	function handleClick(product) {
-		dispatch(clearOutItem(Collection, product));
+		dispatch(clearOutItem(product));
 	}
 
 	return (
@@ -24,7 +22,7 @@ export default function CheckOutItem({ product }) {
 				<span
 					className="icon"
 					onClick={() => {
-						dispatch(removeItemFromCart(Collection,product));
+						dispatch(removeItemFromCart(product));
 					}}
 				>
 					<TfiMinus />
@@ -33,7 +31,7 @@ export default function CheckOutItem({ product }) {
 				<span
 					className="icon"
 					onClick={() => {
-						dispatch(addItemToCart(Collection,product));
+						dispatch(addItemToCart(product));
 					}}
 				>
 					<TfiPlus />

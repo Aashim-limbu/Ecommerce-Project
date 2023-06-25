@@ -1,17 +1,15 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
 	selectIsExpanded,
 	selectCartCount,
-} from "../../store/cart/cart.selector.js";
+} from "../../store/cart/cart.selector";
 
-import { useDispatch } from "react-redux";
 import {
 	CartIconContainer,
 	ShoppingIconSvg,
 	ItemCount,
 } from "./cart-icon.style.jsx";
-import { setIsExpanded } from "../../store/cart/cart.action.js";
-
+import { setIsExpanded } from "../../store/cart/cart.reducer";
 export default function CartIcon() {
 	const dispatch = useDispatch();
 	const IsExpanded = useSelector(selectIsExpanded);
