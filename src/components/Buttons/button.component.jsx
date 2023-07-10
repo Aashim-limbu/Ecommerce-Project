@@ -4,13 +4,13 @@ import {
 	SecondaryButton,
 } from "./button.styles.jsx";
 export const BUTTON_TYPE = {
-	base: "base",
-	secondary: "secondary",
-	inverted: "inverted",
+    base: "base",
+    secondary: "secondary",
+    inverted: "inverted",
 };
 function getButton(buttonType = BUTTON_TYPE.base) {
-	return ({
-		[BUTTON_TYPE.base]: BaseButton,
+    return ({
+        [BUTTON_TYPE.base]: BaseButton,
 		[BUTTON_TYPE.secondary]: SecondaryButton,
 		[BUTTON_TYPE.inverted]: InvertedButton,
     }[buttonType]);

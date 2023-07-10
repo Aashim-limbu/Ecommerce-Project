@@ -24,7 +24,7 @@ export default function Navigation() {
 						style={{
 							maxHeight: "3rem",
 							maxWidth: "3rem",
-							objectFit: "cover",
+							objectFit: "contain",
 							borderRadius: "50%",
 
 							boxShadow:

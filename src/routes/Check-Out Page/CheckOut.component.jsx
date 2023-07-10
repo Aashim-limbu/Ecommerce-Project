@@ -5,6 +5,7 @@ import {
 	selectCartTotal,
 } from "../../store/cart/cart.selector";
 import CheckOutItem from "../../components/Checkout-component/Checkout-component";
+import PaymentForm from "../../components/payment-form/payment-form.component";
 export default function CheckOut() {
 	const Collection = useSelector(selectCollection);
 	const Cost = useSelector(selectCartTotal);
@@ -42,6 +43,7 @@ export default function CheckOut() {
 					</tr>
 				</tfoot>
 			</table>
+			<PaymentForm />
 		</div>
 	);
 }
