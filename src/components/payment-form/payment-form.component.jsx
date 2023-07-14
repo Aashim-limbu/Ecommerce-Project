@@ -15,7 +15,10 @@ export default function PaymentForm() {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ amount: 100 }),
+			body: JSON.stringify({
+				amount: 100,
+				description: "This is the first",
+			}),
 		}).then((res) => res.json());
 		const clientSecret = response.paymentIntent.client_secret;
 
