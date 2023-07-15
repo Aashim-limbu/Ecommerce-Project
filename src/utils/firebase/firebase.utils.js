@@ -7,6 +7,7 @@ import {
 	onAuthStateChanged,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
+	updateProfile,
 } from "firebase/auth";
 import {
 	doc,
@@ -59,9 +60,23 @@ export async function createUserDocumentFromAuth(user, additionalInfo = {}) {
 	}
 	return userDocRef;
 }
-export async function createUserSignInWithEmailNPassword(email, password) {
+export async function createUserSignInWithEmailNPassword(
+	email,
+	password,
+	displayName
+) {
 	if (!email || !password) return;
-	return await createUserWithEmailAndPassword(auth, email, password);
+
+	const userCredential = await createUserWithEmailAndPassword(
+		auth,
+		email,
+		password
+	);
+
+	// Set the display name for the user
+	await updateProfile(userCredential.user, { displayName });
+
+	return userCredential;
 }
 export async function signInUserWithEmailAndPassword(email, password) {
 	if (!email || !password) return;
