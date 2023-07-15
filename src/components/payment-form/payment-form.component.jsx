@@ -3,15 +3,14 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../store/user/user.selector";
 import { selectCartTotal } from "../../store/cart/cart.selector";
-import Button, { BUTTON_TYPE } from "../Buttons/button.component";
-import { FormContainer, PaymentFormContainer } from "./payment-form.style";
+import { BUTTON_TYPE } from "../Buttons/button.component";
+import { FormContainer,StyledCardElement, PaymentFormContainer,PaymentButton } from "./payment-form.style";
 export default function PaymentForm() {
 	const user = useSelector(selectUser);
 	const amount = useSelector(selectCartTotal);
 	const [isProcessing, setIsProcessing] = useState(false);
 	const stripe = useStripe();
-	const elements = useElements();
-    console.log(user)
+	const elements = useElements( );
 	async function paymentHandler(e) {
 		e.preventDefault();
 		if (!stripe || !elements) {
@@ -50,10 +49,13 @@ export default function PaymentForm() {
 		<PaymentFormContainer>
 			<FormContainer onSubmit={paymentHandler}>
 				<h2>Payment:</h2>
-				<CardElement />
-				<Button disabled={isProcessing} buttonType={BUTTON_TYPE.inverted}>
+				<StyledCardElement />
+				<PaymentButton
+					isLoading={isProcessing}
+					buttonType={BUTTON_TYPE.inverted}
+				>
 					Pay
-				</Button>
+				</PaymentButton>
 			</FormContainer>
 		</PaymentFormContainer>
 	);
