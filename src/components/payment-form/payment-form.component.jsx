@@ -24,7 +24,7 @@ export default function PaymentForm() {
 			},
 			body: JSON.stringify({
 				amount: amount * 100,
-				description: "This is the first",
+				description: user.email,
 			}),
 		}).then((res) => res.json());
         const {paymentIntent:{client_secret}} = response;
